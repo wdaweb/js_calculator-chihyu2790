@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Michroma&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #8294a3, #899aa9);
+        }
+
+        .calculator {
+            height: 500px;
+            width: 300px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            padding: 30px;
+            background:
+                linear-gradient(#d7d8cc00 1%, #6c6d5cfd 1%, #6c6d5cfd 1.5%, #d7d8cc00 1.5%),
+                linear-gradient(#d7d8cc00 1.5%, #eeeee9 1.5%, #eeeee9 1.7%, #d7d8cc00 1.8%),
+                linear-gradient(#d7d8cc00 2.5%, #6c6d5cfd 2.5%, #6c6d5cfd 3%, #d7d8cc00 3%),
+                linear-gradient(#d7d8cc00 3%, #eeeee9 3%, #eeeee9 3.2%, #d7d8cc00 3.3%),
+                linear-gradient(#d7d8cc00 16%, #2c2c2a3f 17%, #2c2c2a3f 20%, #d7d8cc00 21%),
+                linear-gradient(45deg, #c1c2b0, #d7d8cc);
+            border-radius: 4px;
+            border: 2px solid #ffffff00;
+            box-shadow: -15px 15px 37px #6e7b87,
+                -8px 8px 15px #7b8b9980,
+                -10px 10px 20px #4f5962,
+                15px -15px 37px #a4b9cb80;
+
+
+        }
+
+        #inputer {
+            line-height: 85px;
+            height: 16%;
+
+            font-size: 2.2rem;
+            text-align: right;
+            letter-spacing: 2px;
+            font-family: 'Electrolize', sans-serif;
+            text-shadow: 0px 1px 2px #ff620077,
+                1px 0px 2px #ff62008c,
+                0px -1px 2px #ff620086,
+                -1px 0px 2px #ff620077;
+            color: #fc9627;
+            overflow: hidden;
+
+            background:
+                linear-gradient(#d7d8cc00 73%, #4e403de0 75%, #5243408c 77%, #d7d8cc00 80%),
+
+                linear-gradient(#d7d8cc00 73%, #5c4b484f 73%, #d7d8cc00 100%),
+                linear-gradient(80deg, #d7d8cc00 48%, #362c2a7e 50%, #362c2ab9 64%, #d7d8cc00 67%, #d7d8cc00 70%, #362c2ab9 75%, #362c2ab9 92%, #d7d8cc00 94%),
+                linear-gradient(85deg, #d7d8cc00 33%, #362c2a7e 35%, #362c2ab9 48%, #d7d8cc00 50%),
+                #1f0313;
+            border: 2px solid #9e9e82;
+            border-image: linear-gradient(225deg, #828375, #e0e1d1a8);
+            border-image-slice: 1;
+        }
+
+        .logo {
+            margin-top: 10%;
+            margin-bottom: 5%;
+            height: 8%;
+            width: 65%;
+
+            overflow: hidden;
+
+            text-align: center;
+
+            box-sizing: border-box;
+            border: 2px solid #595c58;
+
+            box-shadow: -1px 1px 0px rgb(224, 233, 225);
+
+            background:
+                linear-gradient(180deg, #ffffffb0 2%, #ffffff00 2%),
+                linear-gradient(180deg, rgba(70, 70, 70, 0.185) 50%, rgba(250, 204, 204, 0) 50%) repeat-y left top/200px 2px,
+                linear-gradient(85deg, #d7d8cc00 35%, #ffffff65 45%, #d7d8cc00 55%),
+                linear-gradient(85deg, #d7d8cc00 55%, #ffffff67 80%, #d7d8cc00 100%),
+                linear-gradient(85deg, #d7d8cc00 15%, rgb(150, 150, 150) 30%, #d7d8cc00 45%),
+                linear-gradient(80deg, #d7d8cc00 60%, #797979),
+                #a5aaa3;
+        }
+
+        .logo span {
+            font-family: 'Michroma', sans-serif;
+
+
+            line-height: 38px;
+            color: rgb(56, 56, 56);
+            font-weight: 600;
+            font-size: 14px;
+            text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.493);
+        }
+
+        #counter {
+            height: 335px;
+            background: #454a43;
+            border: 5px solid #9e9e82;
+            border-image: linear-gradient(225deg, #828375, #e0e1d1);
+            border-image-slice: 1;
+
+
+        }
+
+        #counter>li {
+            box-sizing: border-box;
+            float: left;
+            color: white;
+            list-style: none;
+            width: 25%;
+            height: 20%;
+            border: 1.7px solid black;
+            padding: 3px;
+            /* background: linear-gradient(90deg, #8b4406, #e69140); */
+        }
+
+        #counter>li:nth-child(1) {
+            background: linear-gradient(45deg, #c05310, #ff9939);
+        }
+
+        #counter>li:nth-child(2) {
+            background: linear-gradient(45deg, #c05310, #ff9939);
+        }
+
+        #counter>li:nth-child(3) {
+            background: linear-gradient(45deg, #c05310, #ff9939);
+        }
+
+        #counter>li:nth-child(4) {
+            background: linear-gradient(45deg, #c05310, #ff9939);
+        }
+
+        #counter>li:nth-child(5) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(6) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(7) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(8) {
+            height: 40%;
+            float: right;
+            background: linear-gradient(45deg, #918f8d, #f4f1ec);
+        }
+
+        #counter>li:nth-child(9) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(10) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(11) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(12) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(13) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(14) {
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:nth-child(15) {
+            height: 40%;
+            float: right;
+            background: linear-gradient(45deg, #918f8d, #f4f1ec);
+        }
+
+        #counter>li:nth-child(16) {
+            width: 50%;
+            background: linear-gradient(45deg, #393b3b, #686969);
+        }
+
+        #counter>li:last-child {
+            background: linear-gradient(45deg, #918f8d, #f4f1ec);
+        }
+
+        button {
+            font-family: 'Michroma', sans-serif;
+            color: rgb(250, 239, 219);
+            font-size: 30px;
+        }
+
+        #counter>li:nth-child(1) button {
+            background: linear-gradient(225deg, #c9620d, #ff9531);
+            ;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(2) button {
+            background: linear-gradient(225deg, #c9620d, #ff9531);
+            ;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(3) button {
+            background: linear-gradient(225deg, #c9620d, #ff9531);
+            ;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(4) button {
+            background: linear-gradient(225deg, #c9620d, #ff9531);
+            ;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(5) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(6) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(7) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(8) button {
+            background: linear-gradient(225deg, #b6b3b2, #f4f1ec);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20%;
+
+            color: #4a4c4d;
+            text-shadow: -1px 1px 0px rgb(248, 244, 244);
+        }
+
+        #counter>li:nth-child(9) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(10) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(11) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(12) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(13) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(14) button {
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+        }
+
+        #counter>li:nth-child(15) button {
+            background: linear-gradient(225deg, #b6b3b2, #f4f1ec);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20%;
+            color: #4a4c4d;
+            text-shadow: -1px 1px 0px rgb(248, 244, 244);
+        }
+
+        #counter>li:nth-child(16) button {
+
+            background: linear-gradient(225deg, #393b3b, #555657);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20%;
+        }
+
+        #counter>li:last-child button {
+            background: linear-gradient(225deg, #918f8d, #f4f1ec);
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+
+            color: #4a4c4d;
+            text-shadow: -1px 1px 0px rgb(248, 244, 244);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div id="inputer">0</div>
+        <div class="logo">
+            <span>CALCULATOR</span>
+        </div>
+        <div id="counter">
+            <li><button>C</button></li>
+            <li><button>/</button></li>
+            <li><button>*</button></li>
+            <li><button>-</button></li>
+            <li><button>7</button></li>
+            <li><button>8</button></li>
+            <li><button>9</button></li>
+            <li><button>+</button></li>
+            <li><button>4</button></li>
+            <li><button>5</button></li>
+            <li><button>6</button></li>
+            <li><button>1</button></li>
+            <li><button>2</button></li>
+            <li><button>3</button></li>
+            <li><button>=</button></li>
+            <li><button>0</button></li>
+            <li><button>.</button></li>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('inputer')
+        const buttons = document.querySelectorAll('button')
+
+        for (const button of buttons) {
+            button.onclick = () => {
+                const text = button.innerText
+                if (text === '=') {
+                    // 執行算式
+                    input.innerText = eval(input.innerText)
+                } else if (text === 'C') {
+                    // 重設
+                    input.innerText = '0'
+                } else {
+                    // 一般按鍵
+                    if (input.innerText === '0') {
+                        input.innerText = text
+                    } else {
+                        input.innerText += text
+                    }
+                }
+            }
+        }
+        // localstage 只能存文字，
+        // 把文字陣列轉成可以用的文字code
+        document.onkeydown = event => {
+            if (event.key === 'Enter') {
+                input.innerText = eval(input.innerText)
+            } else if (
+                !isNaN(parseInt(event.key)) ||
+                event.key === '+' ||
+                event.key === '-' ||
+                event.key === '*' ||
+                event.key === '/' ||
+                event.key === '.'
+            ) {
+                if (input.innerText === '0') {
+                    input.innerText = event.key
+                } else {
+                    input.innerText += event.key
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
